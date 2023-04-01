@@ -111,6 +111,13 @@ a {
 .justifyItemsC {
   justify-items: center;
 }
+
+.floatLeft {
+  float: left;
+}
+.floatRight {
+  float: right;
+}
 /* ============================================================ *\
 *                          Typography                            *
 \* -----------------------------------------------------------  */

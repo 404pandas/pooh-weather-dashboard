@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Stylesheets -->
+    <!-- Normalize -->
+    <link rel="stylesheet" href="./assets/css/normalize.css" />
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Materialize -->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/materialize.min.css"
+      media="screen,projection"
+    />
+    <!-- Colors -->
+    <link rel="stylesheet" href="./assets/css/colors.css" />
+    <!-- Main -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <title>Weather Dashboard</title>
+  </head>
+
+  <!-- Start of Body -->
+  <body class="row">
+    <!-- Begining of Header -->
+    <header>
+      <!-- H1 -->
+      <h1>Weather Dashboard</h1>
+      <!-- Ending of Header -->
+    </header>
+    <!-- Begining of Aside -->
+    <aside class="flexbox flexColumn floatLeft col s12 m6 l3">
+      <!-- H2 -->
+      <h2>Search for a City:</h2>
+      <!-- Beginning of Form -->
+      <form>
+        <!-- Input -->
+        <input type="text" id="searchInput" placeholder="Hundred Aker" />
+        <!-- Search Button -->
+        <button type="submit" id="searchButton">Search</button>
+        <!-- Ending of Form -->
+      </form>
+      <!-- History -->
+      <div id="history">
+        <!-- History Buttons -->
+        History goes here
+      </div>
+      <!-- End of Aside -->
+    </aside>
+    <!-- Beginning of Main -->
+    <main class="flexbox flexColumn floatRight col s12 m6 l9">
+      <!-- Start of Current -->
+      <section id="current">
+        Current Weather goes here
+        <!-- End of Current -->
+      </section>
+      <!-- Start of Forecast -->
+      <section id="forecast">
+        Forecast goes here
+        <!-- End of Forecast -->
+      </section>
+      <!-- Ending of Main -->
+    </main>
+    <!-- Scripts -->
+    <!-- Materialize -->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+
+    <!-- End of Body -->
+  </body>
+</html>
