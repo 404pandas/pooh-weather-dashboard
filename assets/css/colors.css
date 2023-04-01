@@ -1,0 +1,66 @@
+/* ============================================================ *\
+*      Mary Elenius Pooh Weather Dashboard Colors Stylesheet     *
+*                         04/01/2023                             *
+\* -----------------------------------------------------------  */
+
+/*                     Table of Contents:                       *\
+
+* COLOR VARIABLES
+
+* BACKGROUND COLORS
+
+* TEXT COLORS
+
+
+/* ----------------      Color Variables       ---------------- */
+:root {
+  --yellow: #f2d785;
+  --light-orange: #f27c38;
+  --dark-orange: #d95d30;
+  --red: #bf3c30;
+  --white: #f2f2f2;
+}
+
+/* ---------------      Background Colors       --------------- */
+
+.yellow-bg {
+  background-color: var(--yellow) !important;
+}
+
+.light-orange-bg {
+  background-color: var(--light-orange) !important;
+}
+
+.dark-orange-bg {
+  background-color: var(--dark-orange) !important;
+}
+
+.red-bg {
+  background-color: var(--red) !important;
+}
+
+.white-bg {
+  background-color: var(--white) !important;
+}
+
+/* -----------------      Text Colors       ------------------ */
+
+.yellow-fg {
+  color: var(--yellow) !important;
+}
+
+.light-orange-fg {
+  color: var(--light-orange) !important;
+}
+
+.dark-orange-fg {
+  color: var(--dark-orange) !important;
+}
+
+.red-fg {
+  color: var(--red) !important;
+}
+
+.white-fg {
+  color: var(--white) !important;
+}

@@ -1,0 +1,481 @@
+/* ============================================================ *\
+*       Mary Elenius Pooh Weather Dashboard Main Stylesheet      *
+*                         04/01/2023                             *
+\* -----------------------------------------------------------  */
+
+/*                     Table of Contents:                       *\
+
+* UNIVERSAL & VARIABLES
+  ## Color Variables
+
+* ELEMENTS
+  ## Body
+
+* FLEXBOX
+
+* TYPOGRAPHY 
+  ## Text wrap
+  ## Font Family
+  ## Code blocks
+  ## Header Tags
+
+* COMPONENTS
+ ## Header
+ ## Card
+ ## Buttons
+ ## Footer
+
+* HELPERS
+ ## Margin Auto
+
+/* ============================================================ *\
+*                     Universal & Variables                      *
+\* -----------------------------------------------------------  */
+
+/*  Universal selector to remove padding & margin and set box-sizing */
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*     Universal selector to remove text decoration from li and a    */
+li,
+a {
+  text-decoration: none;
+}
+
+/* ----------------      Color Variables       ---------------- */
+
+/*       Color variables for easy selection throughout CSS      */
+:root {
+  --light-green: #606c38;
+  --dark-green: #283618;
+  --off-white: #fefae0;
+  --light-orange: #dda15e;
+  --dark-orange: #bc6c25;
+}
+
+/* ============================================================ *\
+*                           Elements                             *
+\* -----------------------------------------------------------  */
+
+/* ---------------------       Body       --------------------- */
+
+/*          Element Selector to apply background color          */
+body {
+  background-color: var(--off-white);
+}
+
+a {
+  color: var(--light-orange);
+}
+
+/* ============================================================ *\
+*                           Flexbox                              *
+\* -----------------------------------------------------------  */
+
+/*                Class selector to apply flexbox                */
+.flexbox {
+  display: flex !important;
+}
+
+/*         Class selector to apply column flex direction         */
+.flexColumn {
+  flex-direction: column;
+}
+
+/*          Class selector to apply row flex direction           */
+.flexRow {
+  flex-direction: row;
+}
+
+.flexNoWrap {
+  flex-wrap: nowrap;
+}
+
+.flexSpaceAround {
+  justify-content: space-around;
+}
+
+.flexSpaceBetween {
+  justify-content: space-between;
+}
+
+.justifyContentC {
+  justify-content: center;
+}
+
+.justifyItemsC {
+  justify-items: center;
+}
+/* ============================================================ *\
+*                          Typography                            *
+\* -----------------------------------------------------------  */
+
+/* -----------------       Code Block       ------------------- */
+
+/*         Element selector to wrap code block contents         */
+pre {
+  /* Since CSS 2.1 */
+  white-space: pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -moz-pre-wrap;
+  /* Opera 4-6 */
+  white-space: -pre-wrap;
+  /* Opera 7 */
+  white-space: -o-pre-wrap;
+  /* Internet Explorer 5 */
+  word-wrap: break-word;
+}
+
+/* -----------------       Font Family       ------------------ */
+
+/* ------------------       Text Wrap       ------------------- */
+
+/*              Class selector to apply text wrap               */
+.text-wrap {
+  /* Since CSS 2.1 */
+  white-space: pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -moz-pre-wrap;
+  /* Opera 4-6 */
+  white-space: -pre-wrap;
+  /* Opera 7 */
+  white-space: -o-pre-wrap;
+  /* Internet Explorer 5 */
+  word-wrap: break-word;
+}
+
+.no-wrap {
+  /* Since CSS 2.1 */
+  white-space: nowrap;
+  /* Mozilla, since 1999 */
+  white-space: -moz-no-wrap;
+  /* Opera 4-6 */
+  white-space: -no-wrap;
+  /* Opera 7 */
+  white-space: -o-no-wrap;
+  /* Internet Explorer 5 */
+  word-wrap: normal;
+}
+
+/* -----------------       Header Tags       ------------------ */
+
+/*              Class selector to apply text wrap               */
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 0.75rem;
+}
+
+span.card-title {
+  font-size: 2.5rem !important;
+}
+/*              Class selector to apply text wrap               */
+/*              Class selector to apply text wrap               */
+/*              Class selector to apply text wrap               */
+
+/* ============================================================ *\
+*                          Components                            *
+\* -----------------------------------------------------------  */
+
+/* -------------------       Header       --------------------- */
+
+/* Navbar */
+img#codedLogo {
+  display: flex;
+  height: 40px !important;
+  width: 60px !important;
+}
+
+#nav {
+  z-index: 10;
+  position: relative;
+}
+
+#sidenav-overlay {
+  z-index: 9;
+  opacity: 0;
+}
+
+.navbar-fixed {
+  position: fixed !important;
+  top: 0 !important;
+  width: 100% !important;
+}
+
+/* ---------------       Card Container       ----------------- */
+.cards {
+  display: inline-block;
+  margin-top: 65px;
+}
+
+/* --------------------       Card       ---------------------- */
+
+/*         Class selector to set max width of card GIFs         */
+.cardImage {
+  max-width: 50px;
+}
+
+/*     Class selector to set the width of the copiable text     */
+#copiedText {
+  width: fit-content;
+}
+
+.card-content {
+  display: flex;
+  height: 4rem;
+  align-self: center;
+}
+
+span.card-title {
+  size: 1rem !important;
+}
+
+@media only screen and (min-width: 601px) {
+  .row .col.m6 {
+    width: 100%;
+  }
+}
+
+/* -------------------       Button       --------------------- */
+
+/*    Element selector to remove inner outline when clicked     */
+button,
+input[type="submit"] {
+  outline: none;
+  border: none;
+}
+
+/*    Element selector to add animation + cursor when hovered    */
+button:hover,
+input[type="submit"] {
+  cursor: pointer;
+  transform: translateY(-0.25em);
+}
+
+/*   Class selector to change the color of the button effect    */
+.waves-effect .waves-blight .waves-ripple {
+  background-color: rgba(121, 85, 72, 0.65);
+}
+
+.btn-custom {
+  width: auto;
+  height: 36px;
+}
+
+/* -----------------       Family Tree       ------------------ */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.tree ul {
+  padding-top: 20px;
+  position: relative;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+.tree li {
+  float: left;
+  text-align: center;
+  list-style-type: none;
+  position: relative;
+  padding: 20px 5px 0 5px;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+/*       Class selector to create lines before and after        */
+.tree li::before,
+.tree li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 50%;
+  border-top: 1px solid var(--dark-green);
+  width: 50%;
+  height: 20px;
+}
+.tree li::after {
+  right: auto;
+  left: 50%;
+  border-left: 1px solid var(--dark-green);
+}
+
+/*       Class selector to remove lines for only child       */
+.tree li:only-child::after,
+.tree li:only-child::before {
+  display: none;
+}
+
+/*       Class selector to remove top for only child        */
+.tree li:only-child {
+  padding-top: 0;
+}
+
+/* Class selector to remove left & right of first & last child */
+.tree li:first-child::before,
+.tree li:last-child::after {
+  border: 0 none;
+}
+
+/*       Class selector to recreate verticle line        */
+.tree li:last-child::before {
+  border-right: 1px solid var(--dark-green);
+  border-radius: 0 5px 0 0;
+  -webkit-border-radius: 0 5px 0 0;
+  -moz-border-radius: 0 5px 0 0;
+}
+.tree li:first-child::after {
+  border-radius: 5px 0 0 0;
+  -webkit-border-radius: 5px 0 0 0;
+  -moz-border-radius: 5px 0 0 0;
+}
+
+/*       Class selector to create downward lines        */
+.tree ul ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-left: 1px solid var(--dark-green);
+  width: 0;
+  height: 20px;
+}
+
+.tree li a {
+  border: 1px solid var(--dark-green);
+  padding: 5px 10px;
+  text-decoration: none;
+  color: var(--dark-green);
+  font-family: arial, verdana, tahoma;
+  font-size: 11px;
+  display: inline-block;
+
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+.childrenRow {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.card-content {
+  max-width: 100px;
+  height: auto;
+}
+
+.parentNode {
+  margin: auto;
+}
+
+.treeContainer1,
+.treeContainer2 {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/* -------------------       Footer       --------------------- */
+
+/* ----------------       Material Icon       ----------------- */
+
+/*  Class selector to apply padding when button text displayed  */
+.icon-block {
+  padding: 0 15px;
+}
+
+/*      Class selector to tell icons to inherit font size       */
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+/*           Class slector to remove margin on icons            */
+i.no-margin {
+  margin-right: 0px !important;
+}
+
+/* ============================================================ *\
+*                         Media Queries                          *
+\* -----------------------------------------------------------  */
+
+/* ---------------       Hidden Elements       ---------------- */
+
+/*    Class slector to prioritize hidden on medium and down     */
+@media only screen and (max-width: 992px) {
+  span.hide-on-med-and-down {
+    display: none !important;
+  }
+}
+
+/* ============================================================ *\
+*                           Helpers                              *
+\* -----------------------------------------------------------  */
+
+/* ------------------       Margin Auto       ------------------ */
+.marginAuto {
+  margin: 3% 3%;
+}
+
+.margin1 {
+  margin: 1% 1%;
+}
+
+/* ------------------       Margin Left Indent       ------------------ */
+.marginLeft5 {
+  margin-left: 5%;
+}
+
+.alignItemsC {
+  align-items: center;
+}
+
+.alignContentC {
+  align-content: center;
+}
+
+.cardWidth {
+  max-width: 300px;
+}
+
+.contentWidth {
+  max-width: 320px;
+}
+
+.width90 {
+  width: 90vw !important;
+}
+
+.width100 {
+  width: 100vw !important;
+}
+/* ============================================================ *\
+*                        Example Heading                         *
+\* -----------------------------------------------------------  */
+
+/* -------------       Example Sub-Heading       --------------- */
