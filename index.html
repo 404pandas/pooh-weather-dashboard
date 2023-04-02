@@ -16,13 +16,15 @@
     <link
       type="text/css"
       rel="stylesheet"
-      href="css/materialize.min.css"
+      href="./assets/css/materialize.min.css"
       media="screen,projection"
     />
     <!-- Colors -->
-    <link rel="stylesheet" href="./assets/css/colors.css" />
+    <link type="text/css"
+     rel="stylesheet" href="./assets/css/colors.css" />
     <!-- Main -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link type="text/css"
+     rel="stylesheet" href="./assets/css/style.css" />
 
     <title>Weather Dashboard</title>
   </head>
@@ -30,32 +32,75 @@
   <!-- Start of Body -->
   <body class="row">
     <!-- Begining of Header -->
-    <header>
-      <!-- H1 -->
-      <h1>Weather Dashboard</h1>
+    <nav>
+      <div
+        class="nav-wrapper alignItemsC flexbox flexSpaceAround dark-orange-bg"
+      >
+        <img
+          id="codedLogo"
+          src="./assets/images/coded logo copy.png"
+          href="https://www.linkedin.com/in/404pandas/"
+        />
+        <!-- H1 -->
+        <h1 class="alignItemsC flexbox">Weather Dashboard</h1>
+      </div>
       <!-- Ending of Header -->
-    </header>
+    </nav>
+
     <!-- Begining of Aside -->
-    <aside class="flexbox flexColumn floatLeft col s12 m6 l3">
+    <aside class="flexbox flexColumn floatLeft col s12 m4">
       <!-- H2 -->
       <h2>Search for a City:</h2>
       <!-- Beginning of Form -->
-      <form>
+      <form id="searchForm">
         <!-- Input -->
-        <input type="text" id="searchInput" placeholder="Hundred Aker" />
+        <div class="row">
+            <div class="input-field">
+              <input placeholder="Hundred Aker" id="searchInput" type="text" class="validate">
+              <label for="searchInput">Location</label>
+            </div>
         <!-- Search Button -->
-        <button type="submit" id="searchButton">Search</button>
-        <!-- Ending of Form -->
+        <button class="btn waves-effect waves-light" type="submit" name="action">Search
+            <i class="material-icons right">location_on</i>
+          </button>          <!-- Ending of Form -->
       </form>
+          <!-- Start of Alerts -->
+          <div id="alerts flexbox flexColumn">
+          <!-- Information -->
+          <div class="flexbox flexNoWrap alert card blue lighten-4 justifyContentC blue-text text-darken-3 hidden">
+            <div class="card-content flexbox flexSpaceBetween">
+                <i class="material-icons">info</i><p>Info Alert</p>
+            </div>
+            </div>
+            <!-- Warning -->
+            <div class="flexbox flexNoWrap alert card amber lighten-4 justifyContentC brown-text hidden">
+                <div class="card-content flexbox flexSpaceBetween">
+                    <i class="material-icons">report_problem</i><p>Warning Alert</p>
+                </div>
+            </div>
+            <!-- Error -->
+            <div class="flexbox flexNoWrap alert card red lighten-4 justifyContentC red-text text-darken-4 hidden">
+                <div class="card-content flexbox flexSpaceBetween">
+                    <i class="material-icons">report</i><p>Error Alert</p>
+                </div>
+            </div>
+            <!-- Success -->
+            <div class="flexbox flexNoWrap alert card green lighten-4 justifyContentC green-text text-darken-4 hidden">
+                <div class="card-content flexbox flexSpaceBetween">
+                    <i class="material-icons">check_circle</i><p>Success Alert</p>
+                </div>
+            </div>
+          <!-- End of Alerts -->
+</div>
       <!-- History -->
-      <div id="history">
+      <div id="history flexbox flexColumn">
         <!-- History Buttons -->
         History goes here
       </div>
       <!-- End of Aside -->
     </aside>
     <!-- Beginning of Main -->
-    <main class="flexbox flexColumn floatRight col s12 m6 l9">
+    <main class="flexbox flexColumn floatRight col s12 m8">
       <!-- Start of Current -->
       <section id="current">
         Current Weather goes here
@@ -70,9 +115,9 @@
     </main>
     <!-- Scripts -->
     <!-- Materialize -->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="./assets/js/materialize.min.js"></script>
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.js"></script>
 
     <!-- End of Body -->
   </body>

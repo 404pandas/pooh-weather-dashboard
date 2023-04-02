@@ -172,6 +172,11 @@ pre {
 /* -----------------       Header Tags       ------------------ */
 
 /*              Class selector to apply text wrap               */
+h1 {
+  font-size: 2rem;
+  margin: 0 !important;
+}
+
 h2 {
   font-size: 1.5rem;
 }
@@ -486,3 +491,24 @@ i.no-margin {
 \* -----------------------------------------------------------  */
 
 /* -------------       Example Sub-Heading       --------------- */
+
+.card-content {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+i {
+  padding: auto 0;
+}
+
+div p {
+  text-align: center;
+  padding-left: 10px;
+}
+
+.hidden {
+  display: none !important;
+}
