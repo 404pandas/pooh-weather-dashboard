@@ -40,14 +40,39 @@ function renderCurrent(city, weather) {
   var humidity = weather.main.humidity;
   // icon- future development
 
-  // create elements - TODO AFTER STYLING DONE
-  //   var card
-  //   var cardBody
-  //   var heading
-  //   var icon
-  //   var temp
-  //   var wind
-  //   var humidity
+  var cardContainer = document.createElement(" div");
+  var cardImgDiv = document.createElement("div");
+  var cardImg = document.createElement("img");
+  //   Future development- dynamic src for weather
+  var cardContent = document.createElement("div");
+  var cardTitle = document.createElement("span");
+  var moreIcon = document.createElement("i");
+  var dynamicLink = document.createElement("a");
+  var cardReveal = document.createElement("div");
+  var cardTitleSecond = document.createElement("span");
+  var closeIcon = document.createElement("i");
+  var ul = document.createElement("ul");
+  var date = document.createElement("h2");
+  var temp = document.createElement("h2");
+  var wind = document.createElement("h2");
+  var humidity = document.createElement("h2");
+
+  //   var cardContainer = document.createElement(' div'); div w/ class card parent
+  //   var cardImgDiv = document.createElement('div');  div w/ class card-image waves-effect waves-block waves-light child
+  //   var cardImg = document.createElement('img');  img w/ class activator src ./assets/images/weather-specific/pooh96.png grandchild
+  // Future development- dynamic src for weather
+  //   var cardContent = document.createElement('div');  div w/ class card-content child
+  //   var cardTitle = document.createElement('span');  span w/ class grandchildcard-title activator grey-text text-darken-4 flexbox flexNoWrap
+  //   var moreIcon = document.createElement('i');  i w/ class material-icons right great-grandchild
+  // var dynamicLink = document.createElement('a');  a w/ href dynamicLink onclick RedirectURL();return false;
+  //   var cardReveal = document.createElement('div');  div class card-reveal child
+  //   var cardTitleSecond = document.createElement('span');  span class card-title grey-text text-darken-4 grandchild
+  //   var closeIcon = document.createElement('i');  i class material-icons right great grandchild
+  //   var ul = document.createElement('ul'); ul no classes
+  // var date = document.createElement('h2');  h2
+  // var temp = document.createElement('h2');  h2
+  //   var wind = document.createElement('h2');  h2
+  //   var humidity = document.createElement('h2');  h2
 
   // SetAttribute and class card
   //   row > col > card > card-content > card-title span > p > future development = card-action
