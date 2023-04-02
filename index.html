@@ -20,11 +20,9 @@
       media="screen,projection"
     />
     <!-- Colors -->
-    <link type="text/css"
-     rel="stylesheet" href="./assets/css/colors.css" />
+    <link type="text/css" rel="stylesheet" href="./assets/css/colors.css" />
     <!-- Main -->
-    <link type="text/css"
-     rel="stylesheet" href="./assets/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="./assets/css/style.css" />
 
     <title>Weather Dashboard</title>
   </head>
@@ -55,43 +53,67 @@
       <form id="searchForm">
         <!-- Input -->
         <div class="row">
-            <div class="input-field">
-              <input placeholder="Hundred Aker" id="searchInput" type="text" class="validate">
-              <label for="searchInput">Location</label>
-            </div>
+          <div class="input-field">
+            <input
+              placeholder="Hundred Aker"
+              id="searchInput"
+              type="text"
+              class="validate"
+            />
+            <label for="searchInput">Location</label>
+          </div>
+        </div>
         <!-- Search Button -->
-        <button class="btn waves-effect waves-light" type="submit" name="action">Search
-            <i class="material-icons right">location_on</i>
-          </button>          <!-- Ending of Form -->
+        <button
+          class="btn waves-effect waves-light"
+          type="submit"
+          name="action"
+        >
+          Search
+          <i class="material-icons right">location_on</i>
+        </button>
+        <!-- Ending of Form -->
       </form>
-          <!-- Start of Alerts -->
-          <div id="alerts flexbox flexColumn">
-          <!-- Information -->
-          <div class="flexbox flexNoWrap alert card blue lighten-4 justifyContentC blue-text text-darken-3 hidden">
-            <div class="card-content flexbox flexSpaceBetween">
-                <i class="material-icons">info</i><p>Info Alert</p>
-            </div>
-            </div>
-            <!-- Warning -->
-            <div class="flexbox flexNoWrap alert card amber lighten-4 justifyContentC brown-text hidden">
-                <div class="card-content flexbox flexSpaceBetween">
-                    <i class="material-icons">report_problem</i><p>Warning Alert</p>
-                </div>
-            </div>
-            <!-- Error -->
-            <div class="flexbox flexNoWrap alert card red lighten-4 justifyContentC red-text text-darken-4 hidden">
-                <div class="card-content flexbox flexSpaceBetween">
-                    <i class="material-icons">report</i><p>Error Alert</p>
-                </div>
-            </div>
-            <!-- Success -->
-            <div class="flexbox flexNoWrap alert card green lighten-4 justifyContentC green-text text-darken-4 hidden">
-                <div class="card-content flexbox flexSpaceBetween">
-                    <i class="material-icons">check_circle</i><p>Success Alert</p>
-                </div>
-            </div>
-          <!-- End of Alerts -->
-</div>
+      <!-- Start of Alerts -->
+      <div id="alerts flexbox flexColumn">
+        <!-- Information -->
+        <div
+          class="flexbox flexNoWrap alert card blue lighten-4 justifyContentC blue-text text-darken-3 hidden"
+        >
+          <div class="card-content flexbox flexSpaceBetween">
+            <i class="material-icons">info</i>
+            <p>Info Alert</p>
+          </div>
+        </div>
+        <!-- Warning -->
+        <div
+          class="flexbox flexNoWrap alert card amber lighten-4 justifyContentC brown-text hidden"
+        >
+          <div class="card-content flexbox flexSpaceBetween">
+            <i class="material-icons">report_problem</i>
+            <p>Warning Alert</p>
+          </div>
+        </div>
+        <!-- Error -->
+        <div
+          class="flexbox flexNoWrap alert card red lighten-4 justifyContentC red-text text-darken-4 hidden"
+        >
+          <div class="card-content flexbox flexSpaceBetween">
+            <i class="material-icons">report</i>
+            <p>Error Alert</p>
+          </div>
+        </div>
+        <!-- Success -->
+        <div
+          class="flexbox flexNoWrap alert card green lighten-4 justifyContentC green-text text-darken-4 hidden"
+        >
+          <div class="card-content flexbox flexSpaceBetween">
+            <i class="material-icons">check_circle</i>
+            <p>Success Alert</p>
+          </div>
+        </div>
+        <!-- End of Alerts -->
+      </div>
       <!-- History -->
       <div id="history flexbox flexColumn">
         <!-- History Buttons -->
@@ -109,15 +131,57 @@
       <!-- Start of Forecast -->
       <section id="forecast">
         Forecast goes here
+        <!-- Sample card -->
+        <div class="card">
+          <!-- Card image activates -->
+          <div class="card-image waves-effect waves-block waves-light">
+            <img
+              class="activator"
+              src="./assets/images/weather-specific/pooh96.png"
+            />
+          </div>
+          <!-- Card init content -->
+          <div class="card-content">
+            <span
+              class="card-title activator grey-text text-darken-4 flexbox flexNoWrap"
+              >City MM/DD/YYYY<i class="material-icons right"
+                >expand_more
+              </i></span
+            >
+            <p>
+              <a href="#" onclick="RedirectURL();return false;">
+                View Weather
+              </a>
+            </p>
+          </div>
+          <!-- Card reveal content -->
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"
+              >City MM/DD/YYYY<i class="material-icons right">close</i></span
+            >
+            <ul>
+              <li><h2>Date:</h2></li>
+              <li><h2>Temp:</h2></li>
+              <li><h2>Wind:</h2></li>
+              <li><h2>Humidity:</h2></li>
+            </ul>
+          </div>
+        </div>
         <!-- End of Forecast -->
       </section>
       <!-- Ending of Main -->
     </main>
     <!-- Scripts -->
     <!-- Materialize -->
-    <script type="text/javascript" src="./assets/js/materialize.min.js"></script>
+    <script
+      type="text/javascript"
+      src="./assets/js/materialize.min.js"
+    ></script>
     <!-- JQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.6.3.js"
+    ></script>
 
     <!-- End of Body -->
   </body>

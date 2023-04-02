@@ -160,6 +160,46 @@ function notFound() {
   // setTimeout
 }
 
+// Dynamic URL for card link
+function createDynamicURL(location) {
+  //The variable to be returned
+  var URL = "https://openweathermap.org/";
+
+  //The variables containing the respective IDs
+  var cityID = location.id;
+
+  //Forming the variable to return
+  URL += "city/";
+  URL += cityID;
+
+  //   console log to check
+  console.log(cityID);
+
+  // Future development- call cityID
+  // from .json file
+  // Example object:
+  // [
+  //     {
+  //          "id": 833,
+  //          "name": "Ḩeşār-e Sefīd",
+  //          "state": "",
+  //          "country": "IR",
+  //          "coord": {
+  //              "lon": 47.159401,
+  //              "lat": 34.330502
+  //          }
+  //      },
+
+  //  ]
+  return URL;
+}
+
+// Function to redirect on click
+function RedirectURL() {
+  // Sets the window.location to match the dynamic URL
+  window.location = createDynamicURL();
+}
+
 // Init call
 getSearchHistory();
 
