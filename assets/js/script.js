@@ -289,3 +289,8 @@ getSearchHistory();
 searchForm.addEventListener("submit", handleSearchFormSubmit);
 // history button
 searchHistory.addEventListener("click", handleSearchHistoryClick);
+
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.querySelectorAll(".carousel");
+  var instances = M.Carousel.init(elems, options);
+});

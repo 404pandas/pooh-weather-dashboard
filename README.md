@@ -4,33 +4,33 @@
   <!-- ![Name](urlToShieldHere)(urlToGithubHere) -->
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Contributors](https://img.shields.io/github/contributors/404pandas/PARSR.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/PARSR/graphs/contributors)
-[![Forks](https://img.shields.io/github/forks/404pandas/PARSR.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/PARSR/network/members)
-[![Stargazers](https://img.shields.io/github/stars/404pandas/PARSR.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/PARSR/stargazers)
-[![Issues](https://img.shields.io/github/issues/404pandas/PARSR.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/PARSR/issues)
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-black.svg?style=plastic&logo=appveyor&logo=linkedin&colorB=555)](https://linkedin.com/in/LinkedInUsername)
+[![Contributors](https://img.shields.io/github/contributors/404pandas/pooh-weather-dashboard.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/pooh-weather-dashboard/graphs/contributors)
+[![Forks](https://img.shields.io/github/forks/404pandas/pooh-weather-dashboard.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/pooh-weather-dashboard/network/members)
+[![Stargazers](https://img.shields.io/github/stars/404pandas/pooh-weather-dashboard.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/pooh-weather-dashboard/stargazers)
+[![Issues](https://img.shields.io/github/issues/404pandas/pooh-weather-dashboard.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/pooh-weather-dashboard/issues)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-black.svg?style=plastic&logo=appveyor&logo=linkedin&colorB=555)](https://linkedin.com/in/404pandas)
 
 </div>
 
 <!-- PROJECT LOGO -->
 
 <div align="center">
-  <a href="https://github.com/404pandas/PARSR">
-    <img src="/client/src/images/FFRlogo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/404pandas/pooh-weather-dashboard">
+    <img src="./assets/images/coded-logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">PARSR</h3>
+<h3 align="center">Pooh Weather Dashboard</h3>
 
   <p align="center">
-Project Animal Reunification Search & Rescue    <br />
-    <a href="https://github.com/404pandas/PARSR"><strong>Explore the docs »</strong></a>
+Weather Dashboard using newly open source Pooh drawings    <br />
+    <a href="https://github.com/404pandas/pooh-weather-dashboard"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/404pandas/PARSR">View Demo(Broken)</a>
+    <a href="https://github.com/404pandas/pooh-weather-dashboard">View Demo(Broken)</a>
     ·
-    <a href="https://github.com/404pandas/PARSR/issues">Report Bug</a>
+    <a href="https://github.com/404pandas/pooh-weather-dashboard/issues">Report Bug</a>
     ·
-    <a href="https://github.com/404pandas/PARSR/issues">Request Feature</a>
+    <a href="https://github.com/404pandas/pooh-weather-dashboard/issues">Request Feature</a>
   </p>
 </div>
 
@@ -66,22 +66,25 @@ Project Animal Reunification Search & Rescue    <br />
 <!-- Add screenshots using the following format: -->
 <!-- ![Screenshot alt description](directPathOfScreenshots) -->
 
-This project was built with the MERN stack and Apollo + GraphQL.
-It's currently not operational as the styling is switched to utilizing MUI.
+This project was built with basic Javascript, Html, and CSS.
+It uses Materialize for a CSS framework.
+It also makes use of packages dayjs and jquery and gsap
 
 ### Built With
 
+<!--  Dayjs, gsap, jquery, materialize, javascript, css, html, node.js npm vs code -->
+
 <div align="center">
 
+[![Day.js](https://img.shields.io/badge/Package-Dayjs-ff0000?style=plastic&logo=npm&logoWidth=10)](https://day.js.org/)
+[![GSAP](https://img.shields.io/badge/Package-GSAP-ff8000?style=plastic&logo=greensock&logoWidth=10)](https://https://greensock.com/gsap/)
+[![jQuery](https://img.shields.io/badge/Framework-jQuery-ffff00?style=plastic&logo=jQuery&logoWidth=10)](hhttps://api.jquery.com/)
+[![Materialize](https://img.shields.io/badge/Framework-Materialize-80ff00?style=plastic&logo=#757575&logoWidth=10)](https://materializecss.com/)
 [![Javascript](https://img.shields.io/badge/Language-JavaScript-ff0000?style=plastic&logo=JavaScript&logoWidth=10)](https://javascript.info/)
-[![MongoDB](https://img.shields.io/badge/Database-MongoDB-80ff00?style=plastic&logo=MongoDB&logoWidth=10)](https://www.mongodb.com/home)
-[![Heroku](https://img.shields.io/badge/Cloud-Heroku-00ff00?style=plastic&logo=Heroku&logoWidth=10)](https://devcenter.heroku.com/categories/reference)
+[![CSS](https://img.shields.io/badge/Tool-CSS-ff8000?style=plastic&logo=css3&logoWidth=10)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![Node.js](https://img.shields.io/badge/Framework-Node.js-ff0000?style=plastic&logo=Node.js&logoWidth=10)](https://nodejs.org/en/)
-[![React](https://img.shields.io/badge/Framework-React.js-ff8000?style=plastic&logo=React&logoWidth=10)](https://reactjs.org/docs/getting-started.html)
-[![Express](https://img.shields.io/badge/Framework-Express-80ff00?style=plastic&logo=Express&logoWidth=10)](https://expressjs.com/)
 [![npm](https://img.shields.io/badge/Tools-npm-ff0000?style=plastic&logo=npm&logoWidth=10)](https://www.npmjs.com/)
 [![VS Code](https://img.shields.io/badge/IDE-VSCode-ff0000?style=plastic&logo=VisualStudioCode&logoWidth=10)](https://code.visualstudio.com/docs)
-[![MUI](https://img.shields.io/badge/Package-MUI-ff0000?style=plastic&logo=MUI&logoWidth=10)](https://mui.com/)
 
 </div>
 
@@ -89,12 +92,12 @@ It's currently not operational as the styling is switched to utilizing MUI.
 
 ## Getting Started
 
-Once completely built, this application will function as a deployed app on Heroku
+Once completely built, this application will function as a deployed app on Netlify
 
 ### Installation
 
 1. Clone the repo
-   git clone https://github.com/404pandas/PARSR.git
+   git clone https://github.com/404pandas/pooh-weather-dashboard.git
 
 <!-- USAGE EXAMPLES -->
 
@@ -106,11 +109,11 @@ Once the app is functional, screenshots will be added in this section.
 
 ## Roadmap
 
-- [ ] Map
-- [ ] Stripe
-- [ ] Twilio
+- [ ] Pictures by weather
+- [ ] Animations by weather
+- [ ] Different themes
 
-See the [open issues](https://github.com/404pandas/PARSR/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/404pandas/pooh-weather-dashboard/issues) for a full list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -141,7 +144,7 @@ See LICENSE.txt for more information.
 
 Mary Elenius - mary.panda.jackson@gmail.com
 
-Project Link: [https://github.com/404pandas/PARSR](https://github.com/404pandas/PARSR)
+Project Link: [https://github.com/404pandas/pooh-weather-dashboard](https://github.com/404pandas/pooh-weather-dashboard)
 
 <!-- ACKNOWLEDGMENTS -->
 
