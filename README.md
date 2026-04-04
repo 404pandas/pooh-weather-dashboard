@@ -115,7 +115,7 @@ This project uses the [OpenWeatherMap API](https://openweathermap.org/api). The 
 
 ## Usage
 
-Once the app is functional, screenshots will be added in this section.
+<video src="assets/videos/pooh-weather-dashboard.mov" controls width="100%"></video>
 
 <!-- ROADMAP -->
 
