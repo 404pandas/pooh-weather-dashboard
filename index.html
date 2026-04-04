@@ -39,6 +39,10 @@
       <nav>
         <div class="nav-wrapper">
           <h1 class="nav-title">Pooh Weather Dashboard</h1>
+          <div class="unit-toggle">
+            <button class="unit-toggle-btn active" data-unit="F">°F</button>
+            <button class="unit-toggle-btn" data-unit="C">°C</button>
+          </div>
         </div>
       </nav>
     </header>
@@ -60,12 +64,16 @@
             />
             <label for="searchInput">City Name</label>
           </div>
+          <button class="btn btn-location waves-effect" type="button" id="locationBtn">
+            <i class="material-icons" id="locationIcon">my_location</i>
+            Use My Location
+          </button>
           <button
             class="btn btn-search waves-effect waves-light"
             type="submit"
             name="action"
           >
-            <i class="material-icons left">search</i>
+            <i class="material-icons">search</i>
             Search
           </button>
         </form>
@@ -77,7 +85,7 @@
             class="alert-box red lighten-4 red-text text-darken-4 hidden"
           >
             <i class="material-icons">report</i>
-            <p>City not found. Please try again.</p>
+            <p id="errorMsg">City not found. Please try again.</p>
           </div>
         </div>
 
@@ -105,6 +113,17 @@
     </div>
     <!-- end .page-layout -->
 
+    <!-- Loader overlay (Pooh-themed bee + honey pot) -->
+    <div id="loader" class="loader-overlay hidden">
+      <div class="loader-scene">
+        <div class="honey-pot">🍯</div>
+        <div class="bee-orbit-wrapper">
+          <span class="bee-counter-rotate">🐝</span>
+        </div>
+      </div>
+      <p class="loader-msg">Pooh is checking the honey pot weather gauge…</p>
+    </div>
+
     <!-- Scripts -->
     <script
       type="text/javascript"
@@ -117,6 +136,15 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-    <script type="text/javascript" src="./assets/js/script.js"></script>
+    <script type="text/javascript" src="./assets/js/config.js"></script>
+    <script type="text/javascript" src="./assets/js/globals.js"></script>
+    <script type="text/javascript" src="./assets/js/utils.js"></script>
+    <script type="text/javascript" src="./assets/js/animations.js"></script>
+    <script type="text/javascript" src="./assets/js/effects.js"></script>
+    <script type="text/javascript" src="./assets/js/ui.js"></script>
+    <script type="text/javascript" src="./assets/js/history.js"></script>
+    <script type="text/javascript" src="./assets/js/render.js"></script>
+    <script type="text/javascript" src="./assets/js/api.js"></script>
+    <script type="text/javascript" src="./assets/js/app.js"></script>
   </body>
 </html>

@@ -1,9 +1,33 @@
-/* ============================================================ *\
-*       Mary Elenius Pooh Weather Dashboard Main Stylesheet      *
-\* ============================================================ */
+/* ============================================================
+   Pooh Weather Dashboard — Main Stylesheet
+   Mary Elenius
 
-/* ==================  RESET & VARIABLES  ==================== */
+   Sections
+   ─────────────────────────────────────────────────
+   1.  Reset & CSS variables
+   2.  Base elements
+   3.  Navbar & unit toggle
+   4.  Page layout
+   5.  Sidebar
+   6.  Search form & buttons
+   7.  Alert box
+   8.  Loader overlay
+   9.  Search history
+   10. Main content area
+   11. Current weather card
+   12. 5-Day forecast
+   13. Materialize overrides
+   14. Accessibility
+   15. Utilities
+   16. Responsive
+============================================================ */
 
+
+/* ── 1. Reset & CSS variables ─────────────────────────────── */
+
+/* Zero out margins/padding on everything so we start from a blank slate.
+   box-sizing: border-box makes padding/border count toward an element's
+   declared width instead of adding on top of it — much easier to work with. */
 *,
 *::before,
 *::after {
@@ -17,21 +41,24 @@ a {
   text-decoration: none;
 }
 
+/* CSS custom properties (variables). Defined on :root so any element can
+   use them with var(--name). Changing a color here updates it everywhere. */
 :root {
-  --light-green: #606c38;
-  --dark-green: #283618;
-  --off-white: #fefae0;
-  --cream: #f5f0d8;
+  --light-green:  #606c38;
+  --dark-green:   #283618;
+  --off-white:    #fefae0;
+  --cream:        #f5f0d8;
   --light-orange: #dda15e;
-  --dark-orange: #bc6c25;
-  --sidebar-bg: #3d2b1f;
-  --text-dark: #2c1a0e;
-  --text-light: #fefae0;
-  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  --radius: 8px;
+  --dark-orange:  #bc6c25;
+  --sidebar-bg:   #3d2b1f;
+  --text-dark:    #2c1a0e;
+  --text-light:   #fefae0;
+  --card-shadow:  0 4px 12px rgba(0, 0, 0, 0.15);
+  --radius:       8px;
 }
 
-/* ====================  BASE ELEMENTS  ====================== */
+
+/* ── 2. Base elements ─────────────────────────────────────── */
 
 body {
   background-color: var(--cream);
@@ -40,11 +67,7 @@ body {
   min-height: 100vh;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
+h1, h2, h3, h4, h5 {
   font-family: "Nunito", sans-serif;
   font-weight: 700;
 }
@@ -53,7 +76,8 @@ ul {
   list-style: none;
 }
 
-/* ======================  NAVBAR  =========================== */
+
+/* ── 3. Navbar & unit toggle ──────────────────────────────── */
 
 header nav {
   background-color: var(--dark-orange);
@@ -62,23 +86,13 @@ header nav {
   line-height: 64px;
 }
 
+/* space-between pushes the title to the left and the toggle to the right */
 .nav-wrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 20px;
   height: 100%;
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  margin-right: 16px;
-}
-
-img#codedLogo {
-  height: 42px;
-  width: auto;
-  display: block;
 }
 
 .nav-title {
@@ -89,14 +103,51 @@ img#codedLogo {
   margin: 0;
 }
 
-/* ====================  PAGE LAYOUT  ======================== */
+/* Pill-shaped °F / °C switcher in the top-right corner of the nav */
+.unit-toggle {
+  display: flex;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 3px;
+  gap: 2px;
+}
 
+.unit-toggle-btn {
+  background: transparent;
+  border: none;
+  color: rgba(254, 250, 224, 0.65);
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 4px 14px;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* The active button gets a darker pill background to show which unit is selected */
+.unit-toggle-btn.active {
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--off-white);
+}
+
+.unit-toggle-btn:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--off-white);
+}
+
+
+/* ── 4. Page layout ───────────────────────────────────────── */
+
+/* The main page is a two-column flex container: sidebar on the left,
+   main content filling the rest. calc() subtracts the navbar height. */
 .page-layout {
   display: flex;
   min-height: calc(100vh - 64px);
 }
 
-/* ======================  SIDEBAR  ========================== */
+
+/* ── 5. Sidebar ───────────────────────────────────────────── */
 
 .sidebar {
   width: 280px;
@@ -115,18 +166,21 @@ img#codedLogo {
   letter-spacing: 0.5px;
 }
 
-/* ====================  SEARCH FORM  ======================== */
+
+/* ── 6. Search form & buttons ─────────────────────────────── */
 
 .search-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .search-form .input-field {
   margin: 0;
 }
 
+/* Materialize applies its own text color with high specificity, so we need
+   !important to override it with our off-white palette color. */
 .search-form input {
   color: var(--off-white) !important;
   border-bottom-color: var(--light-orange) !important;
@@ -151,22 +205,68 @@ img#codedLogo {
   color: var(--off-white) !important;
 }
 
-.btn-search {
-  background-color: var(--dark-orange) !important;
+/* Both buttons share the same size, font, and icon alignment.
+   They're differentiated below by fill vs. outline treatment. */
+.btn-search,
+.btn-location {
+  width: 100%;
   border-radius: var(--radius);
   font-family: "Nunito", sans-serif;
   font-weight: 700;
-  letter-spacing: 0.5px;
-  width: 100%;
-  transition: background-color 0.2s ease, transform 0.15s ease;
+  font-size: 0.9rem;
+  letter-spacing: 0.4px;
+  height: 42px;
+  line-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+              color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-search .material-icons,
+.btn-location .material-icons {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* Search — filled, primary action */
+.btn-search {
+  background-color: var(--dark-orange) !important;
+  color: var(--off-white) !important;
+  border: 1px solid var(--dark-orange) !important;
+  box-shadow: 0 2px 6px rgba(188, 108, 37, 0.4) !important;
 }
 
 .btn-search:hover {
   background-color: var(--light-orange) !important;
+  border-color: var(--light-orange) !important;
   transform: translateY(-2px);
 }
 
-/* =====================  ALERT BOX  ========================= */
+/* Location — outlined, secondary action */
+.btn-location {
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: rgba(254, 250, 224, 0.8) !important;
+  box-shadow: none !important;
+}
+
+.btn-location:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: var(--off-white) !important;
+  color: var(--off-white) !important;
+  transform: translateY(-2px);
+}
+
+.btn-location:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+
+/* ── 7. Alert box ─────────────────────────────────────────── */
 
 #alerts {
   margin-top: 4px;
@@ -185,16 +285,88 @@ img#codedLogo {
 
 .alert-box i {
   font-size: 1.2rem;
-  flex-shrink: 0;
+  flex-shrink: 0; /* icon never shrinks when the text wraps */
 }
 
-/* ==================  SEARCH HISTORY  ======================= */
+
+/* ── 8. Loader overlay ────────────────────────────────────── */
+
+/* Full-screen dimmed overlay shown while an API call is in flight.
+   z-index: 9000 puts it above everything except the lightning flash effect. */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(61, 43, 31, 0.78);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+  gap: 20px;
+}
+
+.loader-scene {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.honey-pot {
+  font-size: 3rem;
+  animation: pot-bob 1.2s ease-in-out infinite;
+  user-select: none;
+}
+
+/* The wrapper rotates clockwise — this moves the bee around the orbit path */
+.bee-orbit-wrapper {
+  position: absolute;
+  inset: 0;
+  animation: bee-orbit 1.5s linear infinite;
+  transform-origin: center;
+}
+
+/* The bee counter-rotates at the same speed so it stays upright
+   while still following the circular orbit path */
+.bee-counter-rotate {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  animation: bee-counter 1.5s linear infinite;
+  user-select: none;
+}
+
+.loader-msg {
+  color: var(--off-white);
+  font-family: "Nunito", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  max-width: 260px;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+@keyframes bee-orbit   { to { transform: rotate(360deg); } }
+@keyframes bee-counter { to { transform: translateX(-50%) rotate(-360deg); } }
+
+@keyframes pot-bob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+
+/* ── 9. Search history ────────────────────────────────────── */
 
 .history-section {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  flex: 1;
+  flex: 1; /* stretches to fill remaining sidebar space */
 }
 
 .history-heading {
@@ -218,14 +390,17 @@ img#codedLogo {
   gap: 6px;
 }
 
+/* City button fills available width; min-width: 0 allows text to truncate
+   inside a flex child (without it, the text would overflow instead) */
 .history-row .history-btn {
   flex: 1;
-  min-width: 0; /* allows text to truncate inside flex */
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+/* Small circular ✕ button on the right side of each history row */
 .history-remove {
   flex-shrink: 0;
   width: 28px;
@@ -247,29 +422,6 @@ img#codedLogo {
   background: rgba(200, 60, 50, 0.65);
   border-color: transparent;
   color: #fff;
-}
-
-.clear-history-btn {
-  margin-top: 10px;
-  width: 100%;
-  background: transparent !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  color: rgba(254, 250, 224, 0.5) !important;
-  font-family: 'Nunito', sans-serif !important;
-  font-size: 0.72rem !important;
-  font-weight: 600 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  height: 30px;
-  line-height: 30px;
-  box-shadow: none !important;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-.clear-history-btn:hover {
-  background: rgba(200, 60, 50, 0.4) !important;
-  border-color: rgba(200, 60, 50, 0.6) !important;
-  color: var(--off-white) !important;
 }
 
 .history-btn {
@@ -296,8 +448,35 @@ img#codedLogo {
   transform: translateY(-1px);
 }
 
-/* ===================  MAIN CONTENT  ======================== */
+/* Subtle destructive-style button at the bottom of the history list */
+.clear-history-btn {
+  margin-top: 10px;
+  width: 100%;
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: rgba(254, 250, 224, 0.5) !important;
+  font-family: "Nunito", sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  height: 30px;
+  line-height: 30px;
+  box-shadow: none !important;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
 
+.clear-history-btn:hover {
+  background: rgba(200, 60, 50, 0.4) !important;
+  border-color: rgba(200, 60, 50, 0.6) !important;
+  color: var(--off-white) !important;
+}
+
+
+/* ── 10. Main content area ────────────────────────────────── */
+
+/* flex: 1 tells the main area to take up all remaining horizontal space
+   that the sidebar doesn't use */
 .main-content {
   flex: 1;
   padding: 24px;
@@ -307,12 +486,7 @@ img#codedLogo {
   overflow: hidden;
 }
 
-/* ==================  CURRENT WEATHER  ====================== */
-
-.current-section {
-  width: 100%;
-}
-
+/* Small uppercase label above each section ("Current Weather", "5-Day Forecast") */
 .section-label,
 .forecast-label {
   color: var(--dark-orange);
@@ -323,18 +497,38 @@ img#codedLogo {
   margin-bottom: 12px;
 }
 
-/* Current weather card — wider, no reveal */
+
+/* ── 11. Current weather card ─────────────────────────────── */
+
+.current-section {
+  width: 100%;
+}
+
 .current-card {
-  max-width: 560px;
+  width: 98%;
+  max-width: 98%;
+  margin: 0 auto;
   border-radius: var(--radius) !important;
   box-shadow: var(--card-shadow);
   overflow: hidden;
 }
 
+/* contain shows the full illustration without cropping or stretching.
+   max-height caps it so it doesn't blow up on a wide card. */
+.current-card .card-image {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 280px;
+  overflow: hidden;
+}
+
 .current-card .card-image img {
-  width: 100%;
-  object-fit: cover;
-  object-position: center top;
+  width: auto;
+  max-width: 100%;
+  max-height: 280px;
+  object-fit: contain;
 }
 
 .current-card-content {
@@ -359,10 +553,19 @@ img#codedLogo {
   font-size: 1rem;
   font-weight: 600;
   color: #555;
-  margin: 0 0 14px;
+  margin: 0 0 4px;
   text-transform: capitalize;
 }
 
+/* Shows when the reading was last recorded, using the dt field from the API */
+.current-updated {
+  font-size: 0.72rem;
+  color: #aaa;
+  font-style: italic;
+  margin: 0 0 10px;
+}
+
+/* align-items: baseline lines up the big temperature with the smaller labels */
 .current-temp-row {
   display: flex;
   align-items: baseline;
@@ -384,7 +587,8 @@ img#codedLogo {
   color: #777;
 }
 
-/* Stats grid */
+/* auto-fill + minmax lets the grid create as many columns as fit,
+   each at least 105px wide */
 .current-stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
@@ -420,190 +624,7 @@ img#codedLogo {
   letter-spacing: 0.5px;
 }
 
-/* ==================  FORECAST SECTION  ===================== */
-
-.forecast-section {
-  width: 100%;
-}
-
-.forecast-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.forecast-grid .card {
-  flex: 1 1 150px;
-  max-width: 180px;
-  min-width: 140px;
-  border-radius: var(--radius) !important;
-  box-shadow: var(--card-shadow);
-  overflow: hidden;
-}
-
-/* Contain keeps the full ink illustration visible, no cropping */
-.forecast-card-image {
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 140px;
-  overflow: hidden;
-}
-
-.forecast-card-image img {
-  width: 100%;
-  height: 140px;
-  object-fit: contain;
-  object-position: center;
-}
-
-.forecast-card-content {
-  padding: 8px 12px !important;
-}
-
-.forecast-card-title {
-  font-size: 0.85rem !important;
-  font-weight: 700 !important;
-  font-family: "Nunito", sans-serif !important;
-  color: #333 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  white-space: normal !important;
-  overflow: visible !important;
-  line-height: 1.3 !important;
-  margin-bottom: 0 !important;
-}
-
-.forecast-card-title .material-icons {
-  font-size: 1.1rem !important;
-  flex-shrink: 0;
-  margin-left: 4px;
-  color: var(--dark-orange);
-}
-
-/* ====================  CARDS (shared)  ===================== */
-
-.card {
-  border-radius: var(--radius) !important;
-}
-
-.card-content {
-  padding: 12px 16px !important;
-}
-
-.card-content span.card-title {
-  font-size: 0.95rem !important;
-  font-weight: 700 !important;
-  font-family: "Nunito", sans-serif !important;
-  color: #333 !important;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  line-height: 1.3 !important;
-  margin-bottom: 0 !important;
-}
-
-.card-reveal {
-  padding: 16px !important;
-}
-
-.card-reveal span.card-title {
-  font-size: 1rem !important;
-  font-weight: 700 !important;
-  font-family: "Nunito", sans-serif !important;
-  color: #333 !important;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px !important;
-}
-
-.card-reveal ul {
-  list-style: none;
-  padding: 0;
-}
-
-.card-reveal ul li {
-  padding: 4px 0;
-  border-bottom: 1px solid #f0f0f0;
-  font-size: 0.9rem;
-  color: #444;
-}
-
-.card-reveal ul li:last-child {
-  border-bottom: none;
-}
-
-.card-reveal ul li h2 {
-  font-size: 0.9rem !important;
-  font-weight: 600;
-  margin: 0;
-}
-
-/* ====================  BUTTONS  ============================ */
-
-button,
-input[type="submit"] {
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover,
-input[type="submit"]:hover {
-  cursor: pointer;
-}
-
-/* ====================  UTILITIES  ========================== */
-
-.hidden {
-  display: none !important;
-}
-
-.flexbox {
-  display: flex !important;
-}
-.flexColumn {
-  flex-direction: column;
-}
-.flexRow {
-  flex-direction: row;
-}
-.flexWrap {
-  flex-wrap: wrap;
-}
-.flexNoWrap {
-  flex-wrap: nowrap;
-}
-.flexSpaceAround {
-  justify-content: space-around;
-}
-.flexSpaceBetween {
-  justify-content: space-between;
-}
-.justifyContentC {
-  justify-content: center;
-}
-.alignItemsC {
-  align-items: center;
-}
-.alignContentC {
-  align-content: center;
-}
-.floatLeft {
-  float: left;
-}
-.floatRight {
-  float: right;
-}
-.marginAuto {
-  margin: auto;
-}
-
-/* ====================  EMPTY STATE  ======================== */
-
+/* Shown before any search has been made */
 .empty-state {
   display: flex;
   flex-direction: column;
@@ -636,8 +657,170 @@ input[type="submit"]:hover {
   line-height: 1.6;
 }
 
-/* ====================  RESPONSIVE  ========================= */
 
+/* ── 12. 5-Day forecast ───────────────────────────────────── */
+
+.forecast-section {
+  width: 100%;
+}
+
+/* flex-wrap lets cards wrap to a new row on smaller screens */
+.forecast-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* flex: 1 1 150px means cards grow and shrink but start at 150px */
+.forecast-grid .card {
+  flex: 1 1 150px;
+  max-width: 180px;
+  min-width: 140px;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+/* White background makes the ink illustrations pop without color cropping them */
+.forecast-card-image {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+  overflow: hidden;
+}
+
+/* object-fit: contain shows the full illustration — cover would crop it */
+.forecast-card-image img {
+  width: 100%;
+  height: 140px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.forecast-card-content {
+  padding: 8px 12px !important;
+}
+
+/* Short date label + expand icon on the card face */
+.forecast-card-title {
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  font-family: "Nunito", sans-serif !important;
+  color: #333 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0 !important;
+}
+
+.forecast-card-title .material-icons {
+  font-size: 1.1rem !important;
+  flex-shrink: 0;
+  margin-left: 4px;
+  color: var(--dark-orange);
+}
+
+/* Weather condition description always visible below the date label */
+.forecast-desc {
+  font-size: 0.72rem;
+  color: #666;
+  text-transform: capitalize;
+  line-height: 1.3;
+  margin: 3px 0 0;
+}
+
+
+/* ── 13. Materialize overrides ────────────────────────────── */
+
+/* Materialize adds its own border-radius — we override to match ours */
+.card {
+  border-radius: var(--radius) !important;
+}
+
+.card-content {
+  padding: 12px 16px !important;
+}
+
+.card-content span.card-title {
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  font-family: "Nunito", sans-serif !important;
+  color: #333 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1.3 !important;
+  margin-bottom: 0 !important;
+}
+
+.card-reveal {
+  padding: 16px !important;
+}
+
+/* Title bar at the top of the reveal panel (city name + close icon) */
+.card-reveal span.card-title {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  font-family: "Nunito", sans-serif !important;
+  color: #333 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px !important;
+}
+
+.card-reveal ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card-reveal ul li {
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.card-reveal ul li:last-child {
+  border-bottom: none;
+}
+
+
+/* ── 14. Accessibility ────────────────────────────────────── */
+
+/* Remove the default browser outline on all buttons — we add a custom one below */
+button,
+input[type="submit"] {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* :focus-visible only shows the ring for keyboard navigation, not mouse clicks.
+   This keeps the UI clean for mouse users while still helping keyboard users. */
+:focus-visible {
+  outline: 2px solid var(--dark-orange);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+
+/* ── 15. Utilities ────────────────────────────────────────── */
+
+/* !important ensures .hidden always wins, even when other classes add display styles */
+.hidden {
+  display: none !important;
+}
+
+
+/* ── 16. Responsive ───────────────────────────────────────── */
+
+/* On tablets and phones the two-column layout stacks vertically */
 @media only screen and (max-width: 768px) {
   .page-layout {
     flex-direction: column;
@@ -662,6 +845,7 @@ input[type="submit"]:hover {
   }
 }
 
+/* On phones the forecast cards go full-width for readability */
 @media only screen and (max-width: 480px) {
   .forecast-section .card {
     flex: 1 1 100%;

@@ -94,10 +94,22 @@ It also makes use of packages dayjs and jquery and gsap
 
 Once completely built, this application will function as a deployed app on Netlify
 
+### API Key Setup
+
+This project uses the [OpenWeatherMap API](https://openweathermap.org/api). Your key is loaded from a local file that is **never committed to git**.
+
+1. Get a free key at https://openweathermap.org/api (sign up → API keys tab → copy your key)
+2. Duplicate `assets/js/config.example.js` and name the copy `assets/js/config.js`
+3. Replace the placeholder inside `config.js` with your real key
+4. `config.js` is listed in `.gitignore` — your key stays local ✓
+
+> **Note for production / GitHub Pages:** Static sites have no server-side environment, so there is no way to fully hide an API key in plain JavaScript. The `config.js` pattern prevents accidental commits but the key is still visible in the browser's network tab. For a production app, proxy API calls through a backend or serverless function (e.g. a Netlify Function) so the key never reaches the client.
+
 ### Installation
 
 1. Clone the repo
    git clone https://github.com/404pandas/pooh-weather-dashboard.git
+2. Follow the API Key Setup steps above
 
 <!-- USAGE EXAMPLES -->
 
