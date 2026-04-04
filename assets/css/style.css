@@ -1,514 +1,576 @@
 /* ============================================================ *\
 *       Mary Elenius Pooh Weather Dashboard Main Stylesheet      *
-*                         04/01/2023                             *
-\* -----------------------------------------------------------  */
+\* ============================================================ */
 
-/*                     Table of Contents:                       *\
+/* ==================  RESET & VARIABLES  ==================== */
 
-* UNIVERSAL & VARIABLES
-  ## Color Variables
-
-* ELEMENTS
-  ## Body
-
-* FLEXBOX
-
-* TYPOGRAPHY 
-  ## Text wrap
-  ## Font Family
-  ## Code blocks
-  ## Header Tags
-
-* COMPONENTS
- ## Header
- ## Card
- ## Buttons
- ## Footer
-
-* HELPERS
- ## Margin Auto
-
-/* ============================================================ *\
-*                     Universal & Variables                      *
-\* -----------------------------------------------------------  */
-
-/*  Universal selector to remove padding & margin and set box-sizing */
 *,
-*:before,
-*:after {
-  padding: 0;
-  margin: 0;
+*::before,
+*::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/*     Universal selector to remove text decoration from li and a    */
 li,
 a {
   text-decoration: none;
 }
 
-/* ----------------      Color Variables       ---------------- */
-
-/*       Color variables for easy selection throughout CSS      */
 :root {
   --light-green: #606c38;
   --dark-green: #283618;
   --off-white: #fefae0;
+  --cream: #f5f0d8;
   --light-orange: #dda15e;
   --dark-orange: #bc6c25;
+  --sidebar-bg: #3d2b1f;
+  --text-dark: #2c1a0e;
+  --text-light: #fefae0;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --radius: 8px;
 }
 
-/* ============================================================ *\
-*                           Elements                             *
-\* -----------------------------------------------------------  */
+/* ====================  BASE ELEMENTS  ====================== */
 
-/* ---------------------       Body       --------------------- */
-
-/*          Element Selector to apply background color          */
 body {
-  background-color: var(--off-white);
+  background-color: var(--cream);
+  font-family: "Nunito", sans-serif;
+  color: var(--text-dark);
+  min-height: 100vh;
 }
 
-a {
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ======================  NAVBAR  =========================== */
+
+header nav {
+  background-color: var(--dark-orange);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  height: 64px;
+  line-height: 64px;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 100%;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+img#codedLogo {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+.nav-title {
+  color: var(--off-white);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+}
+
+/* ====================  PAGE LAYOUT  ======================== */
+
+.page-layout {
+  display: flex;
+  min-height: calc(100vh - 64px);
+}
+
+/* ======================  SIDEBAR  ========================== */
+
+.sidebar {
+  width: 280px;
+  min-width: 260px;
+  background-color: var(--sidebar-bg);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar-heading {
+  color: var(--off-white);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ====================  SEARCH FORM  ======================== */
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search-form .input-field {
+  margin: 0;
+}
+
+.search-form input {
+  color: var(--off-white) !important;
+  border-bottom-color: var(--light-orange) !important;
+  font-family: "Nunito", sans-serif;
+}
+
+.search-form input::placeholder {
+  color: rgba(254, 250, 224, 0.5);
+}
+
+.search-form input:focus {
+  border-bottom-color: var(--off-white) !important;
+  box-shadow: 0 1px 0 0 var(--off-white) !important;
+}
+
+.search-form label {
+  color: var(--light-orange) !important;
+  font-family: "Nunito", sans-serif;
+}
+
+.search-form label.active {
+  color: var(--off-white) !important;
+}
+
+.btn-search {
+  background-color: var(--dark-orange) !important;
+  border-radius: var(--radius);
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  width: 100%;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-search:hover {
+  background-color: var(--light-orange) !important;
+  transform: translateY(-2px);
+}
+
+/* =====================  ALERT BOX  ========================= */
+
+#alerts {
+  margin-top: 4px;
+}
+
+.alert-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.alert-box i {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* ==================  SEARCH HISTORY  ======================= */
+
+.history-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.history-heading {
   color: var(--light-orange);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
 }
 
-/* ============================================================ *\
-*                           Flexbox                              *
-\* -----------------------------------------------------------  */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 
-/*                Class selector to apply flexbox                */
+.history-btn {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--off-white) !important;
+  border-radius: var(--radius) !important;
+  text-align: left !important;
+  text-transform: capitalize;
+  font-family: "Nunito", sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px;
+  box-shadow: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  padding: 0 16px !important;
+  height: 36px;
+  line-height: 36px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.history-btn:hover {
+  background-color: var(--dark-orange) !important;
+  border-color: var(--dark-orange) !important;
+  transform: translateY(-1px);
+}
+
+/* ===================  MAIN CONTENT  ======================== */
+
+.main-content {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow: hidden;
+}
+
+/* ==================  CURRENT WEATHER  ====================== */
+
+.current-section {
+  width: 100%;
+}
+
+.section-label,
+.forecast-label {
+  color: var(--dark-orange);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+/* Current weather card — wider, no reveal */
+.current-card {
+  max-width: 560px;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.current-card .card-image img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.current-card-content {
+  padding: 16px 20px !important;
+}
+
+.current-city {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--dark-orange);
+  line-height: 1.1;
+  margin: 0 0 2px;
+}
+
+.current-date {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 0 0 6px;
+}
+
+.current-description {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+  margin: 0 0 14px;
+  text-transform: capitalize;
+}
+
+.current-temp-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.current-temp {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+.current-feels,
+.current-range {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Stats grid */
+.current-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+  gap: 8px;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 10px 6px;
+  text-align: center;
+  gap: 2px;
+}
+
+.stat-icon {
+  font-size: 1.3rem !important;
+  color: var(--dark-orange);
+}
+
+.stat-value {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.stat-label {
+  font-size: 0.68rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==================  FORECAST SECTION  ===================== */
+
+.forecast-section {
+  width: 100%;
+}
+
+.forecast-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.forecast-grid .card {
+  flex: 1 1 150px;
+  max-width: 180px;
+  min-width: 140px;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+/* Contain keeps the full ink illustration visible, no cropping */
+.forecast-card-image {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+  overflow: hidden;
+}
+
+.forecast-card-image img {
+  width: 100%;
+  height: 140px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.forecast-card-content {
+  padding: 8px 12px !important;
+}
+
+.forecast-card-title {
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  font-family: "Nunito", sans-serif !important;
+  color: #333 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0 !important;
+}
+
+.forecast-card-title .material-icons {
+  font-size: 1.1rem !important;
+  flex-shrink: 0;
+  margin-left: 4px;
+  color: var(--dark-orange);
+}
+
+/* ====================  CARDS (shared)  ===================== */
+
+.card {
+  border-radius: var(--radius) !important;
+}
+
+.card-content {
+  padding: 12px 16px !important;
+}
+
+.card-content span.card-title {
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  font-family: "Nunito", sans-serif !important;
+  color: #333 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1.3 !important;
+  margin-bottom: 0 !important;
+}
+
+.card-reveal {
+  padding: 16px !important;
+}
+
+.card-reveal span.card-title {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  font-family: "Nunito", sans-serif !important;
+  color: #333 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px !important;
+}
+
+.card-reveal ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card-reveal ul li {
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.card-reveal ul li:last-child {
+  border-bottom: none;
+}
+
+.card-reveal ul li h2 {
+  font-size: 0.9rem !important;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ====================  BUTTONS  ============================ */
+
+button,
+input[type="submit"] {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+/* ====================  UTILITIES  ========================== */
+
+.hidden {
+  display: none !important;
+}
+
 .flexbox {
   display: flex !important;
 }
-
-/*         Class selector to apply column flex direction         */
 .flexColumn {
   flex-direction: column;
 }
-
-/*          Class selector to apply row flex direction           */
 .flexRow {
   flex-direction: row;
 }
-
+.flexWrap {
+  flex-wrap: wrap;
+}
 .flexNoWrap {
   flex-wrap: nowrap;
 }
-
 .flexSpaceAround {
   justify-content: space-around;
 }
-
 .flexSpaceBetween {
   justify-content: space-between;
 }
-
 .justifyContentC {
   justify-content: center;
 }
-
-.justifyItemsC {
-  justify-items: center;
+.alignItemsC {
+  align-items: center;
 }
-
+.alignContentC {
+  align-content: center;
+}
 .floatLeft {
   float: left;
 }
 .floatRight {
   float: right;
 }
-/* ============================================================ *\
-*                          Typography                            *
-\* -----------------------------------------------------------  */
-
-/* -----------------       Code Block       ------------------- */
-
-/*         Element selector to wrap code block contents         */
-pre {
-  /* Since CSS 2.1 */
-  white-space: pre-wrap;
-  /* Mozilla, since 1999 */
-  white-space: -moz-pre-wrap;
-  /* Opera 4-6 */
-  white-space: -pre-wrap;
-  /* Opera 7 */
-  white-space: -o-pre-wrap;
-  /* Internet Explorer 5 */
-  word-wrap: break-word;
-}
-
-/* -----------------       Font Family       ------------------ */
-
-/* ------------------       Text Wrap       ------------------- */
-
-/*              Class selector to apply text wrap               */
-.text-wrap {
-  /* Since CSS 2.1 */
-  white-space: pre-wrap;
-  /* Mozilla, since 1999 */
-  white-space: -moz-pre-wrap;
-  /* Opera 4-6 */
-  white-space: -pre-wrap;
-  /* Opera 7 */
-  white-space: -o-pre-wrap;
-  /* Internet Explorer 5 */
-  word-wrap: break-word;
-}
-
-.no-wrap {
-  /* Since CSS 2.1 */
-  white-space: nowrap;
-  /* Mozilla, since 1999 */
-  white-space: -moz-no-wrap;
-  /* Opera 4-6 */
-  white-space: -no-wrap;
-  /* Opera 7 */
-  white-space: -o-no-wrap;
-  /* Internet Explorer 5 */
-  word-wrap: normal;
-}
-
-/* -----------------       Header Tags       ------------------ */
-
-/*              Class selector to apply text wrap               */
-h1 {
-  font-size: 2rem;
-  margin: 0 !important;
-}
-
-h2 {
-  font-size: 1.5rem;
-}
-
-h3 {
-  font-size: 1.25rem;
-}
-
-h4 {
-  font-size: 1rem;
-}
-
-h5 {
-  font-size: 0.75rem;
-}
-
-span.card-title {
-  font-size: 2.5rem !important;
-}
-/*              Class selector to apply text wrap               */
-/*              Class selector to apply text wrap               */
-/*              Class selector to apply text wrap               */
-
-/* ============================================================ *\
-*                          Components                            *
-\* -----------------------------------------------------------  */
-
-/* -------------------       Header       --------------------- */
-
-/* Navbar */
-img#codedLogo {
-  display: flex;
-  height: 40px !important;
-  width: 60px !important;
-}
-
-#nav {
-  z-index: 10;
-  position: relative;
-}
-
-#sidenav-overlay {
-  z-index: 9;
-  opacity: 0;
-}
-
-.navbar-fixed {
-  position: fixed !important;
-  top: 0 !important;
-  width: 100% !important;
-}
-
-/* ---------------       Card Container       ----------------- */
-.cards {
-  display: inline-block;
-  margin-top: 65px;
-}
-
-/* --------------------       Card       ---------------------- */
-
-/*         Class selector to set max width of card GIFs         */
-.cardImage {
-  max-width: 50px;
-}
-
-/*     Class selector to set the width of the copiable text     */
-#copiedText {
-  width: fit-content;
-}
-
-.card-content {
-  display: flex;
-  height: 4rem;
-  align-self: center;
-}
-
-span.card-title {
-  size: 1rem !important;
-}
-
-@media only screen and (min-width: 601px) {
-  .row .col.m6 {
-    width: 100%;
-  }
-}
-
-/* -------------------       Button       --------------------- */
-
-/*    Element selector to remove inner outline when clicked     */
-button,
-input[type="submit"] {
-  outline: none;
-  border: none;
-}
-
-/*    Element selector to add animation + cursor when hovered    */
-button:hover,
-input[type="submit"] {
-  cursor: pointer;
-  transform: translateY(-0.25em);
-}
-
-/*   Class selector to change the color of the button effect    */
-.waves-effect .waves-blight .waves-ripple {
-  background-color: rgba(121, 85, 72, 0.65);
-}
-
-.btn-custom {
-  width: auto;
-  height: 36px;
-}
-
-/* -----------------       Family Tree       ------------------ */
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.tree ul {
-  padding-top: 20px;
-  position: relative;
-
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-}
-
-.tree li {
-  float: left;
-  text-align: center;
-  list-style-type: none;
-  position: relative;
-  padding: 20px 5px 0 5px;
-
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-}
-
-/*       Class selector to create lines before and after        */
-.tree li::before,
-.tree li::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 50%;
-  border-top: 1px solid var(--dark-green);
-  width: 50%;
-  height: 20px;
-}
-.tree li::after {
-  right: auto;
-  left: 50%;
-  border-left: 1px solid var(--dark-green);
-}
-
-/*       Class selector to remove lines for only child       */
-.tree li:only-child::after,
-.tree li:only-child::before {
-  display: none;
-}
-
-/*       Class selector to remove top for only child        */
-.tree li:only-child {
-  padding-top: 0;
-}
-
-/* Class selector to remove left & right of first & last child */
-.tree li:first-child::before,
-.tree li:last-child::after {
-  border: 0 none;
-}
-
-/*       Class selector to recreate verticle line        */
-.tree li:last-child::before {
-  border-right: 1px solid var(--dark-green);
-  border-radius: 0 5px 0 0;
-  -webkit-border-radius: 0 5px 0 0;
-  -moz-border-radius: 0 5px 0 0;
-}
-.tree li:first-child::after {
-  border-radius: 5px 0 0 0;
-  -webkit-border-radius: 5px 0 0 0;
-  -moz-border-radius: 5px 0 0 0;
-}
-
-/*       Class selector to create downward lines        */
-.tree ul ul::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  border-left: 1px solid var(--dark-green);
-  width: 0;
-  height: 20px;
-}
-
-.tree li a {
-  border: 1px solid var(--dark-green);
-  padding: 5px 10px;
-  text-decoration: none;
-  color: var(--dark-green);
-  font-family: arial, verdana, tahoma;
-  font-size: 11px;
-  display: inline-block;
-
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-}
-
-.childrenRow {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.card-content {
-  max-width: 100px;
-  height: auto;
-}
-
-.parentNode {
-  margin: auto;
-}
-
-.treeContainer1,
-.treeContainer2 {
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-/* -------------------       Footer       --------------------- */
-
-/* ----------------       Material Icon       ----------------- */
-
-/*  Class selector to apply padding when button text displayed  */
-.icon-block {
-  padding: 0 15px;
-}
-
-/*      Class selector to tell icons to inherit font size       */
-.icon-block .material-icons {
-  font-size: inherit;
-}
-
-/*           Class slector to remove margin on icons            */
-i.no-margin {
-  margin-right: 0px !important;
-}
-
-/* ============================================================ *\
-*                         Media Queries                          *
-\* -----------------------------------------------------------  */
-
-/* ---------------       Hidden Elements       ---------------- */
-
-/*    Class slector to prioritize hidden on medium and down     */
-@media only screen and (max-width: 992px) {
-  span.hide-on-med-and-down {
-    display: none !important;
-  }
-}
-
-/* ============================================================ *\
-*                           Helpers                              *
-\* -----------------------------------------------------------  */
-
-/* ------------------       Margin Auto       ------------------ */
 .marginAuto {
-  margin: 3% 3%;
+  margin: auto;
 }
 
-.margin1 {
-  margin: 1% 1%;
+/* ====================  RESPONSIVE  ========================= */
+
+@media only screen and (max-width: 768px) {
+  .page-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .main-content {
+    padding: 16px;
+  }
+
+  .forecast-section .card {
+    flex: 1 1 120px;
+    max-width: 160px;
+  }
+
+  .nav-title {
+    font-size: 1.2rem;
+  }
 }
 
-/* ------------------       Margin Left Indent       ------------------ */
-.marginLeft5 {
-  margin-left: 5%;
-}
-
-.alignItemsC {
-  align-items: center;
-}
-
-.alignContentC {
-  align-content: center;
-}
-
-.cardWidth {
-  max-width: 300px;
-}
-
-.contentWidth {
-  max-width: 320px;
-}
-
-.width90 {
-  width: 90vw !important;
-}
-
-.width100 {
-  width: 100vw !important;
-}
-/* ============================================================ *\
-*                        Example Heading                         *
-\* -----------------------------------------------------------  */
-
-/* -------------       Example Sub-Heading       --------------- */
-
-.card-content {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-i {
-  padding: auto 0;
-}
-
-div p {
-  text-align: center;
-  padding-left: 10px;
-}
-
-.hidden {
-  display: none !important;
+@media only screen and (max-width: 480px) {
+  .forecast-section .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
