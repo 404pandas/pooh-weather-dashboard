@@ -115,7 +115,7 @@ This project uses the [OpenWeatherMap API](https://openweathermap.org/api). The 
 
 ## Usage
 
-<video src="assets/videos/pooh-weather-dashboard.mov" controls width="100%"></video>
+<img src="assets/videos/walkthrough-bigger.gif" controls width="100%"></img>
 
 <!-- ROADMAP -->
 
