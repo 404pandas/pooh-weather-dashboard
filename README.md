@@ -97,14 +97,13 @@ Once completely built, this application will function as a deployed app on Netli
 
 ### API Key Setup
 
-This project uses the [OpenWeatherMap API](https://openweathermap.org/api). Your key is loaded from a local file that is **never committed to git**.
+This project uses the [OpenWeatherMap API](https://openweathermap.org/api). The key lives in `assets/js/config.js`.
 
 1. Get a free key at https://openweathermap.org/api (sign up → API keys tab → copy your key)
 2. Duplicate `assets/js/config.example.js` and name the copy `assets/js/config.js`
 3. Replace the placeholder inside `config.js` with your real key
-4. `config.js` is listed in `.gitignore` — your key stays local ✓
 
-> **Note for production / GitHub Pages:** Static sites have no server-side environment, so there is no way to fully hide an API key in plain JavaScript. The `config.js` pattern prevents accidental commits but the key is still visible in the browser's network tab. For a production app, proxy API calls through a backend or serverless function (e.g. a Netlify Function) so the key never reaches the client.
+> **Heads up:** Because this is a fully static site (no build step, no server), the API key has to exist in client-side JavaScript and is visible in the browser's network tab. This is fine for a free-tier portfolio project — OpenWeatherMap's free plan is rate-limited, and you can regenerate the key in seconds if needed. For a production app with billing on the line, the correct solution is to proxy API calls through a serverless function (e.g. a Netlify Function) so the key never reaches the browser.
 
 ### Installation
 
