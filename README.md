@@ -115,7 +115,7 @@ This project uses the [OpenWeatherMap API](https://openweathermap.org/api). The 
 
 ## Usage
 
-<img src="assets/videos/walkthrough-bigger.gif" controls width="100%"></img>
+<img src="assets/videos/walkthrough-bigger.gif" alt="walkthrough video"></img>
 
 <!-- ROADMAP -->
 
