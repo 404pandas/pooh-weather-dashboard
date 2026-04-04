@@ -121,8 +121,24 @@ Once the app is functional, screenshots will be added in this section.
 
 ## Roadmap
 
-- [ ] Pictures by weather
-- [ ] Animations by weather
+- [x] Weather-matched Pooh illustrations per condition
+- [x] GSAP entrance animations (page load, search button, history rows)
+- [x] ScrollTrigger — animations fire when elements scroll into view
+- [x] Weather particle effects (rain, snow, sun glow, wind streaks, lightning)
+- [x] Current weather card with full stat grid (wind, humidity, pressure, visibility, etc.)
+- [x] 5-day forecast with Materialize card reveal
+- [x] Weather description on forecast cards
+- [x] Temperature unit toggle (°F / °C) — instant re-render, no extra API call
+- [x] Last updated timestamp on current weather card
+- [x] Search history with per-item remove and clear all
+- [x] Use My Location button (browser Geolocation API + reverse geocoding)
+- [x] Empty state screen with random Pooh quote
+- [x] Pooh-themed loading overlay (bee orbiting a honey pot)
+- [x] Descriptive error messages (city not found vs. network error)
+- [x] Animated favicon (bee orbiting honey pot in the browser tab)
+- [x] Keyboard accessibility (focus rings, Enter/Space on card activators)
+- [x] Responsive layout (stacks on tablet and mobile)
+- [x] API key protected via gitignored config.js
 - [ ] Different themes
 
 See the [open issues](https://github.com/404pandas/pooh-weather-dashboard/issues) for a full list of proposed features (and known issues).
