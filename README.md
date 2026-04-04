@@ -8,7 +8,8 @@
 [![Forks](https://img.shields.io/github/forks/404pandas/pooh-weather-dashboard.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/pooh-weather-dashboard/network/members)
 [![Stargazers](https://img.shields.io/github/stars/404pandas/pooh-weather-dashboard.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/pooh-weather-dashboard/stargazers)
 [![Issues](https://img.shields.io/github/issues/404pandas/pooh-weather-dashboard.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/pooh-weather-dashboard/issues)
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-black.svg?style=plastic&logo=appveyor&logo=linkedin&colorB=555)](https://linkedin.com/in/404pandas)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-black.svg?style=plastic&logo=linkedin&colorB=555)](https://linkedin.com/in/404pandas)
+[![Deployment](https://img.shields.io/badge/Deployment-pink.svg?style=plastic&logo=netlify&logo)](https://pooh-weather-dashboard.netlify.app/)
 
 </div>
 
@@ -26,7 +27,7 @@ Weather Dashboard using newly open source Pooh drawings    <br />
     <a href="https://github.com/404pandas/pooh-weather-dashboard"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/404pandas/pooh-weather-dashboard">View Demo(Broken)</a>
+    <a href="https://pooh-weather-dashboard.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/404pandas/pooh-weather-dashboard/issues">Report Bug</a>
     ·
@@ -173,6 +174,7 @@ See LICENSE.txt for more information.
 Mary Elenius - mary.panda.jackson@gmail.com
 
 Project Link: [https://github.com/404pandas/pooh-weather-dashboard](https://github.com/404pandas/pooh-weather-dashboard)
+Deployment Link: [https://pooh-weather-dashboard.netlify.app/](https://pooh-weather-dashboard.netlify.app/)
 
 <!-- ACKNOWLEDGMENTS -->
 
